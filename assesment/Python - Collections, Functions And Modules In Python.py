@@ -1,8 +1,6 @@
-# FixTrack - Device Repair Tracking System
+orders = []   
 
-orders = []   # list to store repair orders
-
-TAX_RATE = 0.18   # 18% tax
+TAX_RATE = 0.18
 
 
 def book_repair():
