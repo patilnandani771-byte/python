@@ -2,7 +2,7 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 
-# ---------------- Playlist Class ----------------
+
 class Playlist:
     def __init__(self, name, songs):
         self.name = name
@@ -28,7 +28,7 @@ class Playlist:
             return file.read()
 
 
-# ---------------- GUI Application ----------------
+
 class MusicBoxApp:
     def __init__(self, root):
         self.root = root
@@ -57,7 +57,7 @@ class MusicBoxApp:
 
         self.load_playlists()
 
-    # ---------------- Save Playlist ----------------
+    
     def save_playlist(self):
         name = self.playlist_entry.get().strip()
         songs = self.song_text.get("1.0", tk.END).strip().split("\n")
@@ -77,7 +77,7 @@ class MusicBoxApp:
         except Exception as e:
             messagebox.showerror("Error", str(e))
 
-    # ---------------- Load Playlists ----------------
+    
     def load_playlists(self):
         self.playlist_listbox.delete(0, tk.END)
         if os.path.exists("playlists"):
@@ -85,7 +85,7 @@ class MusicBoxApp:
                 if file.endswith(".txt"):
                     self.playlist_listbox.insert(tk.END, file)
 
-    # ---------------- View Playlist ----------------
+    
     def view_playlist(self):
         try:
             selected = self.playlist_listbox.get(self.playlist_listbox.curselection())
@@ -101,7 +101,7 @@ class MusicBoxApp:
         self.song_text.delete("1.0", tk.END)
 
 
-# ---------------- Run Application ----------------
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = MusicBoxApp(root)
